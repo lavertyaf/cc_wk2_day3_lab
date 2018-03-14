@@ -2,10 +2,16 @@ require('minitest/autorun')
 require_relative('../customer')
 require_relative('../drink')
 require_relative('../pub')
+require_relative('../food')
 
 class CustomerTest < MiniTest::Test
 
   def setup
+    @food1 = Food.new("Crisps", 1, 1)
+    @food2 = Food.new("Burger", 6, 6)
+    @food3 = Food.new("Curry", 5, 7)
+    @food4 = Food.new("Peanuts", 1, 1)
+
     @drink1 = Drink.new("Beer", 3, 3)
     @drink2 = Drink.new("Wine", 5, 4)
     @drink3 = Drink.new("Cider", 4, 2)
@@ -61,5 +67,17 @@ class CustomerTest < MiniTest::Test
     @customer.buys_drink(@drink1, @pub)
     @customer.buys_drink(@drink2, @pub)
     assert_equal(13, @customer.drunkness)
+  end
+
+  def test_customer_buy_food__reduces_money
+    @customer.buys_food(@food2, @pub)
+    assert_equal(24, @customer.wallet)
+    assert_equal(156, @pub.balance)
+  end
+
+  def test_customer_buy_food__reduces_drunkenness
+    @customer.buys_drink(@drink4, @pub)
+    @customer.buys_food(@food3, @pub)
+    assert_equal(1, @customer.drunkness)
   end
 end
