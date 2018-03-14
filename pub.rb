@@ -1,6 +1,6 @@
 class Pub
-
-attr_reader :name, :balance, :menu
+attr_accessor :balance
+attr_reader :name, :menu
 
   def initialize(new_name, amount_in_till, collection_of_drinks)
 
@@ -11,7 +11,6 @@ attr_reader :name, :balance, :menu
 
   def is_the_till_empty?
     return @balance == 0
-    true
   end
 
   def there_are_drinks
