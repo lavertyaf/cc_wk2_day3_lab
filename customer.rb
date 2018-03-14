@@ -1,11 +1,12 @@
 class Customer
 attr_accessor :wallet
-attr_reader :name
+attr_reader :name, :age
 
-  def initialize(new_name, new_wallet_amount)
+  def initialize(new_name, new_wallet_amount, new_age)
 
     @name = new_name
     @wallet = new_wallet_amount
+    @age = new_age
   end
 
   def wallet_is_empty?
@@ -13,10 +14,14 @@ attr_reader :name
   end
 
   def buys_drink(drink, pub)
-    if wallet_is_empty? == false
+    if wallet_is_empty? == false && is_old_enough? == true
       @wallet -=  drink.price
       pub.balance += drink.price
     end
+  end
+
+  def is_old_enough?
+    return @age >= 18
   end
 
 end

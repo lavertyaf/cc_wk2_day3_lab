@@ -6,7 +6,7 @@ require_relative('../drink')
 class PubTest < MiniTest::Test
 
   def setup
-    customer = Customer.new("Simon", 30)
+    customer = Customer.new("Simon", 30, 27)
 
     drink1 = Drink.new("Beer", 3)
     drink2 = Drink.new("Wine", 5)
@@ -29,5 +29,7 @@ class PubTest < MiniTest::Test
   def test_pub_has_drinks
     assert_equal(4, @pub.there_are_drinks)
   end
+
+
 
 end

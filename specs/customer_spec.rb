@@ -14,7 +14,9 @@ class CustomerTest < MiniTest::Test
 
     @pub = Pub.new("Thrums", 150, menu)
 
-    @customer = Customer.new("Simon", 30)
+    @customer = Customer.new("Simon", 30, 27)
+    @customer2 = Customer.new("Mike", 15, 17)
+
   end
 
   def test_customer_has_name
@@ -29,5 +31,17 @@ class CustomerTest < MiniTest::Test
     @customer.buys_drink(@drink1, @pub)
     assert_equal(27, @customer.wallet)
     assert_equal(153, @pub.balance)
+  end
+
+  def test_customer_has_age
+    assert_equal(27, @customer.age)
+  end
+
+  def test_is_customer_old_enough__true
+    assert_equal(true, @customer.is_old_enough?)
+  end
+
+  def test_is_customer_old_enough__false
+    assert_equal(false, @customer2.is_old_enough?)
   end
 end
