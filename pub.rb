@@ -7,6 +7,7 @@ attr_reader :name, :menu
     @name = new_name
     @balance = amount_in_till
     @menu = collection_of_drinks
+
   end
 
   def is_the_till_empty?

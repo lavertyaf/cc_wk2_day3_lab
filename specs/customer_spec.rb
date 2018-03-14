@@ -45,4 +45,21 @@ class CustomerTest < MiniTest::Test
   def test_is_customer_old_enough__false
     assert_equal(false, @customer2.is_old_enough?)
   end
+
+  def test_is_customer_sober_at_first
+    assert_equal(0, @customer.drunkness)
+  end
+
+  def test_customer_is_getting_drunk
+    @customer.buys_drink(@drink4, @pub)
+    assert_equal(8, @customer.drunkness)
+  end
+
+  def test_customer_is_refused
+    @customer.buys_drink(@drink4, @pub)
+    @customer.buys_drink(@drink3, @pub)
+    @customer.buys_drink(@drink1, @pub)
+    @customer.buys_drink(@drink2, @pub)
+    assert_equal(13, @customer.drunkness)
+  end
 end

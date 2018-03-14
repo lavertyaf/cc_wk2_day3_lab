@@ -12,7 +12,7 @@ class PubTest < MiniTest::Test
     drink2 = Drink.new("Wine", 5, 4)
     drink3 = Drink.new("Cider", 4, 2)
     drink4 = Drink.new("Cocktail", 7, 8)
-    @drink5 = Drink.new("Coffee", 2, 0)
+    drink5 = Drink.new("Coffee", 2, 0)
 
     drinks_menu = [drink1, drink2, drink3, drink4, drink5]
 
@@ -28,7 +28,7 @@ class PubTest < MiniTest::Test
   end
 
   def test_pub_has_drinks
-    assert_equal(4, @pub.there_are_drinks)
+    assert_equal(5, @pub.there_are_drinks)
   end
 
 
