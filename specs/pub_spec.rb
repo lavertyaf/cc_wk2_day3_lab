@@ -8,12 +8,13 @@ class PubTest < MiniTest::Test
   def setup
     customer = Customer.new("Simon", 30, 27)
 
-    drink1 = Drink.new("Beer", 3)
-    drink2 = Drink.new("Wine", 5)
-    drink3 = Drink.new("Cider", 4)
-    drink4 = Drink.new("Cocktail", 7)
+    drink1 = Drink.new("Beer", 3, 3)
+    drink2 = Drink.new("Wine", 5, 4)
+    drink3 = Drink.new("Cider", 4, 2)
+    drink4 = Drink.new("Cocktail", 7, 8)
+    @drink5 = Drink.new("Coffee", 2, 0)
 
-    drinks_menu = [drink1, drink2, drink3, drink4]
+    drinks_menu = [drink1, drink2, drink3, drink4, drink5]
 
     @pub = Pub.new("The Ship", 150, drinks_menu)
   end

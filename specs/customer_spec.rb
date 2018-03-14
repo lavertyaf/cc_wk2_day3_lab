@@ -6,11 +6,12 @@ require_relative('../pub')
 class CustomerTest < MiniTest::Test
 
   def setup
-    @drink1 = Drink.new("Beer", 3)
-    @drink2 = Drink.new("Wine", 5)
-    @drink3 = Drink.new("Cider", 4)
-    @drink4 = Drink.new("Cocktail", 7)
-    menu =[@drink1, @drink2, @drink3, @drink4]
+    @drink1 = Drink.new("Beer", 3, 3)
+    @drink2 = Drink.new("Wine", 5, 4)
+    @drink3 = Drink.new("Cider", 4, 2)
+    @drink4 = Drink.new("Cocktail", 7, 8)
+    @drink5 = Drink.new("Coffee", 2, 0)
+    menu =[@drink1, @drink2, @drink3, @drink4, @drink5]
 
     @pub = Pub.new("Thrums", 150, menu)
 

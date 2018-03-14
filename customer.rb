@@ -7,6 +7,7 @@ attr_reader :name, :age
     @name = new_name
     @wallet = new_wallet_amount
     @age = new_age
+    
   end
 
   def wallet_is_empty?
